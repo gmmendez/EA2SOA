@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">EA2-SOA</string>
+    <string name="txtBienvenido">Bienvenido</string>
+    <string name="txtUser">Usuario</string>
+    <string name="txtPassword">Contraseña</string>
+    <string name="btnLogin">Ingresar</string>
+    <string name="btnRegister">Registrarme</string>
+    <string name="lblRegister">Registro</string>
+    <string name="lblName">Nombre</string>
+    <string name="lblSurname">Apellido</string>
+    <string name="lblDNI">DNI</string>
+    <string name="lblEmail">Email</string>
+    <string name="lblPassword">Contraseña</string>
+    <string name="lblComision">Comision</string>
+    <string name="btnProcess">Procesar registro</string>
+</resources>
