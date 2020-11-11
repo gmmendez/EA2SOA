@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">EA2-SOA</string>
-    <string name="txtBienvenido">Bienvenido</string>
+    <string name="txtBienvenido">¡Bienvenido!</string>
     <string name="txtUser">Usuario</string>
     <string name="txtPassword">Contraseña</string>
     <string name="btnLogin">Ingresar</string>
@@ -13,4 +13,17 @@
     <string name="lblPassword">Contraseña</string>
     <string name="lblComision">Comision</string>
     <string name="btnProcess">Procesar registro</string>
+    <string name="lblAccelerometer">Acelerómetro</string>
+    <string name="lblGiroscope">Giroscopo</string>
+    <string name="btnLoteria">¡Jugar loteria!</string>
+    <string name="txtGoodLuck">“Todas las cosas del mundo son hijas o nietas del azar.”</string>
+    <string name="lblUserNumber">Ingrese un número</string>
+    <string name="btnPlay">¡Tirar!</string>
+    <string name="lblResult">Resultado</string>
+    <string name="btnGoBack">Volver</string>
+    <string name="btnRegisterEvtAc">Registrar evento acelerometro</string>
+    <string name="btnRegisterEvtGi">Registrar evento giroscopo</string>
+    <string name="lblUltimoNro">Ultimo numero obtenido en la sesion anterior</string>
+    <string name="btnActualizarHora">Actualizar hora</string>
+    <string name="lblNro">Numero</string>
 </resources>

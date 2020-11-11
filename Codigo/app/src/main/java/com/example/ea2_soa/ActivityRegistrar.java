@@ -23,7 +23,6 @@ public class ActivityRegistrar extends AppCompatActivity {
     public JSONObject body = new JSONObject();
     public JSONObject rtaJson;
     public String resultado, token;
-    int codRta;
     public hiloRegistrar connectionThread;
     AlertDialog.Builder popUpError;
 
@@ -31,7 +30,7 @@ public class ActivityRegistrar extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_registrar);
-
+        popUpError = new AlertDialog.Builder(ActivityRegistrar.this);
         popUpError.setTitle("Error");
 
         popUpError.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
@@ -47,11 +46,12 @@ public class ActivityRegistrar extends AppCompatActivity {
         email = findViewById(R.id.txtEmail);
         contraseña = findViewById(R.id.txtPassword);
         comision = findViewById(R.id.txtComision);
+
     }
 
     public void registrarUser(View vistaRegistro){
         try{
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("name", nombre.getText().toString());
             body.put("lastname", apellido.getText().toString());
             body.put("dni", DNI.getText().toString());
@@ -87,8 +87,6 @@ public class ActivityRegistrar extends AppCompatActivity {
                     }
                 }
             });
-
-            Log.i("Login-ResponseCode",String.valueOf(codRta));
         }
     }
 
@@ -100,12 +98,11 @@ public class ActivityRegistrar extends AppCompatActivity {
         else{
             body = new JSONObject();
             body.put("env", "TEST");
-            body.put("type_events", "Usuario nuevo");
-            body.put("description", "Se ha registrado un nuevo usuario en la aplicación.");
+            body.put("type_events", "Nuevo usuario");
+            body.put("description", "Se ha registrado un nuevo usuario en la aplicacion.");
             token = response.getString("token");
-
-            hiloEventoRegistrarRequest eventRegisterThread = new hiloEventoRegistrarRequest(response.getString("token"), body);
-            eventRegisterThread.start();
+            hiloEventoRegistrarRequest eventoRegisterarHilo = new hiloEventoRegistrarRequest(token, body);
+            eventoRegisterarHilo.start();
 
             Toast.makeText(this, "Nuevo usuario creado.", Toast.LENGTH_SHORT).show();
         }
@@ -122,6 +119,7 @@ public class ActivityRegistrar extends AppCompatActivity {
         }
 
         public void run(){
+            Log.i("Termino Registro",tokenUsuario);
             try {
                 resultado = Request.requestEventos("http://so-unlam.net.ar/api/api/event", body, tokenUsuario);
                 respuestaJson = new JSONObject(resultado);
@@ -155,14 +153,13 @@ public class ActivityRegistrar extends AppCompatActivity {
             Toast.makeText(this, "Atencion: imposible registrar el evento en el servidor", Toast.LENGTH_SHORT).show();
         }
         else{
-            startActivityIngresar(token);
+            iniciarActivityIngresar(token);
         }
     }
 
-    public void startActivityIngresar(String token) {
+    public void iniciarActivityIngresar(String token) {
         Intent intentIngreso = new Intent(this, ActivityIngresar.class);
         intentIngreso.putExtra("token", token);
-
         startActivity(intentIngreso);
     }
 

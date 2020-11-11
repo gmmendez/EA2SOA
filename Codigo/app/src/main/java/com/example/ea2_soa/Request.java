@@ -71,6 +71,7 @@ public class Request {
         request.setDoOutput(true);
         request.setRequestMethod("POST");
         request.setRequestProperty("Content-Type","application/json");
+        Log.i("requestEventos",token);
         request.setRequestProperty("Authorization", "Bearer "+token);
 
         data = new DataOutputStream(request.getOutputStream());
@@ -79,7 +80,7 @@ public class Request {
         request.connect();
 
         codigoRespuesta = request.getResponseCode();
-        Log.i("ResponseCode",String.valueOf(codigoRespuesta));
+        Log.i("ResponseCode",String.valueOf(codigoRespuesta));//BORRAR???
         BufferedReader in;
         if(codigoRespuesta == HttpURLConnection.HTTP_OK || codigoRespuesta == HttpURLConnection.HTTP_CREATED){
             in = new BufferedReader(new InputStreamReader(request.getInputStream()));
@@ -122,6 +123,34 @@ public class Request {
         request.disconnect();
 
         Log.i("Autenticacion-Response", respuesta);
+        return respuesta;
+    }
+
+    public static String requestTimezone(String ep, String metodo) throws IOException {
+        endpoint = new URL(ep);
+        request = (HttpURLConnection)endpoint.openConnection();
+
+        //request.setDoOutput(true);
+        request.setRequestMethod(metodo);
+        //request.setRequestProperty("Content-Type","application/json");
+
+        request.connect();
+
+        codigoRespuesta = request.getResponseCode();
+
+        BufferedReader in;
+        if(codigoRespuesta == HttpURLConnection.HTTP_OK || codigoRespuesta == HttpURLConnection.HTTP_CREATED){
+            in = new BufferedReader(new InputStreamReader(request.getInputStream()));
+        }
+        else{
+            in = new BufferedReader(new InputStreamReader(request.getErrorStream()));
+        }
+
+        respuesta = RespuestaAString(in).toString();
+
+        request.disconnect();
+
+        Log.i("Horario-Response", respuesta);
         return respuesta;
     }
 

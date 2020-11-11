@@ -4,6 +4,173 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@android:color/darker_gray"
     tools:context=".ActivityIngresar">
+
+    <TextView
+        android:id="@+id/txtBattery"
+        android:layout_width="70dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="16dp"
+        android:textColor="@android:color/background_dark"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.91"
+        app:layout_constraintStart_toEndOf="@+id/txtTime"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/lblAccelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/lblAccelerometer"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnActualizarHora" />
+
+    <TextView
+        android:id="@+id/lblGiroscope"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="@string/lblGiroscope"
+        android:textColor="@android:color/holo_orange_dark"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtAccelerometerY" />
+
+    <TextView
+        android:id="@+id/txtAccelerometerX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccelerometer" />
+
+    <TextView
+        android:id="@+id/txtAccelerometerY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccelerometer" />
+
+    <TextView
+        android:id="@+id/txtAccelerometerZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblAccelerometer" />
+
+    <TextView
+        android:id="@+id/txtGiroscopeY"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblGiroscope" />
+
+    <TextView
+        android:id="@+id/txtGiroscopeX"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="40dp"
+        android:layout_marginLeft="40dp"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblGiroscope" />
+
+    <TextView
+        android:id="@+id/txtGiroscopeZ"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.902"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblGiroscope" />
+
+    <Button
+        android:id="@+id/btnLoteria"
+        android:layout_width="117dp"
+        android:layout_height="31dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="iniciarActivityLoteria"
+        android:text="@string/btnLoteria"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtGiroscopeY" />
+
+    <Button
+        android:id="@+id/btnRegisterEvtAc"
+        android:layout_width="245dp"
+        android:layout_height="34dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/holo_green_dark"
+        android:onClick="registrarEventoAcelerometro"
+        android:text="@string/btnRegisterEvtAc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnLoteria" />
+
+    <Button
+        android:id="@+id/btnRegisterEvtGi"
+        android:layout_width="216dp"
+        android:layout_height="35dp"
+        android:layout_marginTop="12dp"
+        android:background="@android:color/holo_green_dark"
+        android:onClick="registrarEventoGiroscopo"
+        android:text="@string/btnRegisterEvtGi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnRegisterEvtAc" />
+
+    <TextView
+        android:id="@+id/txtTime"
+        android:layout_width="87dp"
+        android:layout_height="21dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginTop="16dp"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnActualizarHora"
+        android:layout_width="112dp"
+        android:layout_height="18dp"
+        android:layout_marginTop="8dp"
+        android:background="@android:color/holo_blue_dark"
+        android:onClick="buscarHora"
+        android:text="@string/btnActualizarHora"
+        android:textColor="@android:color/holo_red_dark"
+        android:textSize="12sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.052"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTime" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

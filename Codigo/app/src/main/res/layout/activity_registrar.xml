@@ -4,192 +4,186 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/darker_gray"
-    tools:context=".ActivityRegistrar" >
+    android:background="?attr/colorButtonNormal"
+    tools:context=".ActivityRegistrar">
 
     <TextView
         android:id="@+id/lblRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="93dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="28dp"
         android:text="@string/lblRegister"
-        android:textColor="?android:attr/textColorPrimaryNoDisable"
-        android:textSize="36sp"
+        android:textColor="@android:color/black"
+        android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.48"
+        app:layout_constraintHorizontal_bias="0.501"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtName"
-        android:layout_width="266dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="36dp"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/lblName"
-        android:inputType="text"
-        android:text="@string/lblName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.287"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lblRegister" />
-
-    <TextView
-        android:id="@+id/lblName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="72dp"
-        android:text="@string/lblName"
-        android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/txtSurname"
-        android:layout_width="276dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="44dp"
-        android:inputType="text"
-        android:text="@string/lblSurname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.325"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/lblSurname"/>
-
-    <TextView
-        android:id="@+id/lblSurname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/lblSurname"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtSurname"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.091"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtName"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <EditText
-        android:id="@+id/txtDNI"
-        android:layout_width="276dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="44dp"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/lblDNI"
-        android:inputType="text"
-        android:text="@string/lblDNI"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSurname" />
-
-    <TextView
-        android:id="@+id/lblDNI"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lblDNI"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtDNI"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.081"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtSurname"
-        app:layout_constraintVertical_bias="0.65" />
-
-    <EditText
-        android:id="@+id/txtEmail"
-        android:layout_width="276dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="44dp"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/lblEmail"
-        android:inputType="textEmailAddress"
-        android:text="@string/lblEmail"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtDNI" />
-
-    <TextView
-        android:id="@+id/lblEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/lblEmail"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.085"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.48" />
-
-    <EditText
-        android:id="@+id/txtPassword"
-        android:layout_width="276dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="36dp"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/txtPassword"
-        android:inputType="textPassword"
-        android:text="@string/lblPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
-
-    <TextView
-        android:id="@+id/lblPassword"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="@string/lblPassword"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtPassword"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.1"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <EditText
         android:id="@+id/txtComision"
-        android:layout_width="276dp"
-        android:layout_height="31dp"
-        android:layout_marginTop="36dp"
-        android:autofillHints="@string/txtUser"
-        android:hint="@string/lblComision"
+        android:layout_width="351dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Comision"
+        android:background="@android:color/darker_gray"
         android:inputType="text"
-        android:text="@string/lblComision"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.321"
+        app:layout_constraintHorizontal_bias="0.533"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
-
-    <Button
-        android:id="@+id/btnProcess"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:background="@android:color/holo_green_dark"
-        android:text="@string/btnProcess"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.495"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txtComision" />
+        app:layout_constraintTop_toBottomOf="@+id/lblComision"
+        tools:ignore="LabelFor" />
 
     <TextView
         android:id="@+id/lblComision"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="4dp"
+        android:layout_marginTop="20dp"
         android:text="@string/lblComision"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toTopOf="@+id/txtComision"
+        android:textColor="?attr/colorError"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.095"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintHorizontal_bias="0.094"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtPassword" />
+
+    <EditText
+        android:id="@+id/txtPassword"
+        android:layout_width="351dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Contraseña"
+        android:background="@android:color/darker_gray"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblPassword"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/lblName"
+        android:textColor="?attr/colorError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.086"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblRegister" />
+
+    <EditText
+        android:id="@+id/txtName"
+        android:layout_width="350dp"
+        android:layout_height="21dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Nombre"
+        android:background="@android:color/darker_gray"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblName"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblSurname"
+        android:textColor="?attr/colorError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.088"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtName" />
+
+    <EditText
+        android:id="@+id/txtSurname"
+        android:layout_width="349dp"
+        android:layout_height="19dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Apellido"
+        android:background="@android:color/darker_gray"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblSurname"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblDNI"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblDNI"
+        android:textColor="?attr/colorError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtSurname" />
+
+    <EditText
+        android:id="@+id/txtDNI"
+        android:layout_width="348dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="DNI"
+        android:background="@android:color/darker_gray"
+        android:inputType="text"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblDNI"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblEmail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblEmail"
+        android:textColor="?attr/colorError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.082"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtDNI" />
+
+    <EditText
+        android:id="@+id/txtEmail"
+        android:layout_width="351dp"
+        android:layout_height="20dp"
+        android:layout_marginTop="8dp"
+        android:autofillHints="Email"
+        android:background="@android:color/darker_gray"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.516"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lblEmail"
+        tools:ignore="LabelFor" />
+
+    <TextView
+        android:id="@+id/lblPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="@string/lblPassword"
+        android:textColor="?attr/colorError"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.091"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtEmail" />
+
+    <Button
+        android:id="@+id/btnProcess"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@color/colorAccent"
+        android:onClick="registrarUser"
+        android:text="@string/btnProcess"
+        android:textColor="@android:color/background_light"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtComision" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

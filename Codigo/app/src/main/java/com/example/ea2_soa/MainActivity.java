@@ -10,6 +10,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -44,7 +45,7 @@ public class MainActivity extends AppCompatActivity {
 
 
 
-        popupError.setPositiveButton("Entendido", new DialogInterface.OnClickListener() {
+        popupError.setPositiveButton("Ok", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 dialog.dismiss();
@@ -57,6 +58,7 @@ public class MainActivity extends AppCompatActivity {
         super.onStart();
         IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
         registerReceiver(receiverConectividad, filter);
+
     }
 
     @Override
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
             loginThread.start();
         }
         catch(Exception ex){
-            Toast.makeText(this, "EXCEPCION en start"+ex, Toast.LENGTH_SHORT).show();
+            Toast.makeText(this, "La aplicacion lanzó una excepcion: "+ex, Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -158,11 +160,17 @@ public class MainActivity extends AppCompatActivity {
             Toast.makeText(this, "Imposible registrar el evento de login en el servidor", Toast.LENGTH_SHORT).show();
         }
         else{
-            Toast.makeText(this, "WELL DONE!", Toast.LENGTH_SHORT).show();//iniciarActivityIngreso(token);
+            iniciarActivityIngreso(token);
         }
     }
 
-    public void iniciarActivityRegistro(View vista){
+    public void iniciarActivityIngreso(String token){
+        Intent intentIngresar = new Intent(this, ActivityIngresar.class);
+        intentIngresar.putExtra("token", token);
+        startActivity(intentIngresar);
+    }
+
+    public void iniciarActivityRegistrar(View vista){
         Intent intentRegistrar = new Intent(this, ActivityRegistrar.class);
         startActivity(intentRegistrar);
     }
