@@ -5,6 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
+import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Looper;
@@ -25,6 +27,7 @@ public class ActivityRegistrar extends AppCompatActivity {
     public String resultado, token;
     public hiloRegistrar connectionThread;
     AlertDialog.Builder popUpError;
+    ReceiverConexion receiverConectividad = new ReceiverConexion();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -97,7 +100,7 @@ public class ActivityRegistrar extends AppCompatActivity {
         }
         else{
             body = new JSONObject();
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("type_events", "Nuevo usuario");
             body.put("description", "Se ha registrado un nuevo usuario en la aplicacion.");
             token = response.getString("token");
@@ -119,7 +122,6 @@ public class ActivityRegistrar extends AppCompatActivity {
         }
 
         public void run(){
-            Log.i("Termino Registro",tokenUsuario);
             try {
                 resultado = Request.requestEventos("http://so-unlam.net.ar/api/api/event", body, tokenUsuario);
                 respuestaJson = new JSONObject(resultado);
@@ -163,5 +165,16 @@ public class ActivityRegistrar extends AppCompatActivity {
         startActivity(intentIngreso);
     }
 
+    @Override
+    protected void onStart() {
+        super.onStart();
+        IntentFilter filter = new IntentFilter(ConnectivityManager.CONNECTIVITY_ACTION);
+        registerReceiver(receiverConectividad, filter);
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
+        unregisterReceiver(receiverConectividad);
+    }
 }

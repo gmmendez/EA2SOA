@@ -31,6 +31,7 @@ public class ActivityIngresar extends AppCompatActivity implements SensorEventLi
     private Sensor senGiroscopo;
     public hiloEventoRegistrarRequest eventRegisterThread;
     public String resultado, resultadoRequest, horaServer;
+    public HiloHora hilo;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,27 +68,34 @@ public class ActivityIngresar extends AppCompatActivity implements SensorEventLi
     }
 
     public void buscarHora(View vista){
-        HiloHora hilo;
-        try{
+        if(Conectividad.validarConexionAInternet(this)) {
+            hilo = new HiloHora();
+            hilo.start();
+            Toast.makeText(this, "Actualizando hora...", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(this, "Para actualizar la hora necesita estar conectado a internet", Toast.LENGTH_SHORT).show();
+        }
+        /*try{
             hilo = new HiloHora();
             Toast.makeText(this, "Actualizando hora...", Toast.LENGTH_SHORT).show();
             hilo.start();
         }
         catch(Exception ex){
             Toast.makeText(this, "Imposible actualizar hora: "+ex, Toast.LENGTH_SHORT).show();
-        }
+        }*/
     }
 
     class HiloHora extends Thread{
         private Handler hiloHandler = new Handler(Looper.getMainLooper());
         JSONObject jsonRta;
-        private String horaServer;
+        private String horaServer="";
 
         public void run(){
             try {
                 resultadoRequest = Request.requestTimezone("http://worldtimeapi.org/api/timezone/America/Argentina/Buenos_Aires", "GET");
                 jsonRta = new JSONObject(resultadoRequest);
-                Log.i("Hora",jsonRta.toString());
+                //Log.i("Hora",jsonRta.toString());
             } catch (IOException | JSONException e) {
                 e.printStackTrace();
             }
@@ -98,6 +106,8 @@ public class ActivityIngresar extends AppCompatActivity implements SensorEventLi
                     try {
                         //JSONArray jsonArray = jsonRta.getJSONArray("data"); // Parseo de la respuesta
                         horaServer = (String) jsonRta.get("datetime");
+                        //JSONArray jsonArray = jsonRta.getJSONArray("data"); // Parseo de la respuesta
+                        //horaServer = jsonArray.getJSONObject(0).optString("datetime");// + " ºC";
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -160,7 +170,7 @@ public class ActivityIngresar extends AppCompatActivity implements SensorEventLi
     public void registrarEventoAcelerometro(View view){
         try {
             JSONObject body = new JSONObject();
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("type_events", "Actividad de Acelerometro");
             body.put("description", "La aplicacion esta sensando el acelerometro del smartphone.");
             if(Conectividad.validarConexionAInternet(this)){
@@ -179,7 +189,7 @@ public class ActivityIngresar extends AppCompatActivity implements SensorEventLi
     public void registrarEventoGiroscopo(View view){
         try {
             JSONObject body = new JSONObject();
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("type_events", "Actividad de Giroscopo");
             body.put("description", "La aplicacion esta sensando el giroscopo del smartphone.");
             if(Conectividad.validarConexionAInternet(this)){

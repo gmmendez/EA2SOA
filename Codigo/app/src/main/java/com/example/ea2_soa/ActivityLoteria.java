@@ -117,7 +117,7 @@ public class ActivityLoteria extends AppCompatActivity implements SensorEventLis
     public void registrarEvento(View vista){
         try {
             JSONObject body = new JSONObject();
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("type_events", "Actividad de Acelerometro");
             body.put("description", "El usuario comenzo a jugar a la loteria.");
             if(Conectividad.validarConexionAInternet(this)){

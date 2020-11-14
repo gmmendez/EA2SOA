@@ -113,7 +113,7 @@ public class MainActivity extends AppCompatActivity {
         else{
             token = responseJson.getString("token"); //Obtengo el token otorgado por el servidor.
             body = new JSONObject();//Armo el body para la nueva request
-            body.put("env", "TEST");
+            body.put("env", "PROD");
             body.put("type_events", "Login");
             body.put("description", "Un usuario se ha logueado al sistema");
 
